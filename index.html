@@ -47,7 +47,7 @@
         <header class="section-heading reveal">
           <p class="section-label">Mod downloads</p>
           <h2 id="projects-title">Download <br />the mods.</h2>
-          <p>Choose a project below to find its latest release, requirements and installation files.</p>
+          <p>Choose a project below to download its installer or explore the manual setup options.</p>
         </header>
 
         <div class="project-list">
@@ -63,14 +63,24 @@
               <div class="project-info">
                 <div class="release-meta"><span>v0.1.0-alpha.1</span><span>Meta Quest</span><span>GPL-2.0</span></div>
                 <p class="release-note">Early alpha release. Original Jedi Academy game data is not included.</p>
-                <div class="project-actions" aria-label="Downloads for Jedi Academy Diorama Mod">
-                  <a class="primary-download" data-release-asset="installer" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/jedi-academy-v0.1.0-alpha.1/JKXR-Diorama-MR-0.1.0-alpha.1-Installer.exe" target="_blank" rel="noopener noreferrer">Download for Windows <span data-release-version>v0.1.0 alpha ↗</span></a>
-                  <a data-release-asset="apk" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/jedi-academy-v0.1.0-alpha.1/JKXR-Diorama-MR-0.1.0-alpha.1.apk" target="_blank" rel="noopener noreferrer">Manual APK <span>Advanced ↗</span></a>
-                  <a data-release-asset="source" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/jedi-academy-v0.1.0-alpha.1/JKXR-Diorama-MR-0.1.0-alpha.1-source.zip" target="_blank" rel="noopener noreferrer">Source ZIP <span>GPL-2.0 ↗</span></a>
-                  <a data-release-asset="checksum" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/jedi-academy-v0.1.0-alpha.1/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer">Verify SHA-256 <span>Checksums ↗</span></a>
-                  <a href="https://github.com/galateainteractive/JKXR-Diorama-MR" target="_blank" rel="noopener noreferrer">View source on GitHub <span>Repository ↗</span></a>
-                  <a data-release-page href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/tag/jedi-academy-v0.1.0-alpha.1" target="_blank" rel="noopener noreferrer">Release details <span>GitHub ↗</span></a>
-                </div>
+                <section class="easy-install" aria-labelledby="jedi-install-title">
+                  <div><span>Recommended</span><h4 id="jedi-install-title">Easy installation</h4></div>
+                  <p>The installer finds your Jedi Academy files, checks them, installs the Quest app and transfers the required game data.</p>
+                  <a class="primary-download" data-release-asset="installer" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/jedi-academy-v0.1.0-alpha.1/JKXR-Diorama-MR-0.1.0-alpha.1-Installer.exe" target="_blank" rel="noopener noreferrer">Download installer <span data-release-version>v0.1.0 alpha ↗</span></a>
+                </section>
+                <p class="standalone-note"><strong>Runs natively on Meta Quest.</strong> A Windows PC and USB connection are only required for installation.</p>
+                <details class="download-options">
+                  <summary>Other options and project files <span>+</span></summary>
+                  <div>
+                    <p>For a manual setup, install the APK with ADB or SideQuest and transfer your legally obtained game files separately.</p>
+                    <div class="project-actions" aria-label="Other downloads for Jedi Academy">
+                      <a data-release-asset="apk" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/jedi-academy-v0.1.0-alpha.1/JKXR-Diorama-MR-0.1.0-alpha.1.apk" target="_blank" rel="noopener noreferrer">Download APK <span>Manual installation ↗</span></a>
+                      <a data-release-asset="source" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/jedi-academy-v0.1.0-alpha.1/JKXR-Diorama-MR-0.1.0-alpha.1-source.zip" target="_blank" rel="noopener noreferrer">Download source package <span>GPL-2.0 ZIP ↗</span></a>
+                      <a data-release-asset="checksum" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/jedi-academy-v0.1.0-alpha.1/SHA256SUMS.txt" target="_blank" rel="noopener noreferrer">Verify download <span>SHA-256 checksums ↗</span></a>
+                      <a data-release-page href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/tag/jedi-academy-v0.1.0-alpha.1" target="_blank" rel="noopener noreferrer">Release details <span>GitHub ↗</span></a>
+                    </div>
+                  </div>
+                </details>
               </div>
               <div class="project-details">
                 <section class="features">
@@ -87,12 +97,12 @@
                   </div>
                 </section>
                 <section>
-                  <h4>Requirements</h4>
+                  <h4>Requirements for installation</h4>
                   <ul><li>Compatible Meta Quest with Developer Mode enabled</li><li>Windows PC and USB connection</li><li>Legally obtained PC copy of Jedi Academy</li><li>USB debugging authorization</li></ul>
                 </section>
-                <section>
-                  <h4>Installation</h4>
-                  <p>The Windows installer locates or accepts the Jedi Academy folder, validates the required game data, installs the Quest application, transfers the files and launches the app. The APK is intended for advanced manual installation or updates.</p>
+                <section class="after-installation">
+                  <h4>After installation</h4>
+                  <p>Launch the mod directly on the headset. The PC is not required while playing.</p>
                   <p class="small-note">Windows may show a SmartScreen warning because the installer is not Authenticode-signed. Verify its SHA-256 checksum before running it.</p>
                 </section>
                 <details class="project-more">
@@ -118,12 +128,22 @@
               <div class="project-info">
                 <div class="release-meta"><span>v0.1.0 preview 1</span><span>Quest 3S tested</span><span>Public preview</span></div>
                 <p class="release-note">Requires your own legally purchased Google Play copy of GTA San Andreas for Android 2.11.311 (ARM64 complete split APK set) and the supported PS2-style audio archive. Game data and a prebuilt modified APK are not included.</p>
-                <div class="project-actions" aria-label="Downloads for GTA San Andreas Diorama Mod">
-                  <a class="primary-download" data-release-asset="installer" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/gta-sa-diorama-mr-v0.1.0-preview.1/GTA-SA-Diorama-MR-v0.1.0-preview.1-Installer.exe" target="_blank" rel="noopener noreferrer">Download for Windows <span data-release-version>Preview 1 ↗</span></a>
-                  <span>Personal Quest build · no prebuilt APK</span>
-                  <a data-release-asset="checksum" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/gta-sa-diorama-mr-v0.1.0-preview.1/SHA256SUMS-v0.1.0-preview.1.txt" target="_blank" rel="noopener noreferrer">Verify SHA-256 <span>Checksums ↗</span></a>
-                  <a data-release-page href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/tag/gta-sa-diorama-mr-v0.1.0-preview.1" target="_blank" rel="noopener noreferrer">Release details <span>GitHub ↗</span></a>
-                </div>
+                <section class="easy-install" aria-labelledby="gta-install-title">
+                  <div><span>Recommended</span><h4 id="gta-install-title">Easy installation</h4></div>
+                  <p>The installer checks your supplied game files, creates your personal Quest build locally and installs it on the headset.</p>
+                  <a class="primary-download" data-release-asset="installer" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/gta-sa-diorama-mr-v0.1.0-preview.1/GTA-SA-Diorama-MR-v0.1.0-preview.1-Installer.exe" target="_blank" rel="noopener noreferrer">Download installer <span data-release-version>Preview 1 ↗</span></a>
+                </section>
+                <p class="standalone-note"><strong>Runs natively on Meta Quest.</strong> A Windows PC, USB connection and internet access are only required for the initial build and installation.</p>
+                <details class="download-options">
+                  <summary>Other download information <span>+</span></summary>
+                  <div>
+                    <p>A prebuilt APK is not provided because the Quest package must be created locally from files supplied by the game owner.</p>
+                    <div class="project-actions" aria-label="Other downloads for GTA San Andreas">
+                      <a data-release-asset="checksum" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/gta-sa-diorama-mr-v0.1.0-preview.1/SHA256SUMS-v0.1.0-preview.1.txt" target="_blank" rel="noopener noreferrer">Verify download <span>SHA-256 checksums ↗</span></a>
+                      <a data-release-page href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/tag/gta-sa-diorama-mr-v0.1.0-preview.1" target="_blank" rel="noopener noreferrer">Release details <span>GitHub ↗</span></a>
+                    </div>
+                  </div>
+                </details>
               </div>
               <div class="project-details">
                 <section class="features">
@@ -140,13 +160,12 @@
                   </div>
                 </section>
                 <section>
-                  <h4>Requirements</h4>
+                  <h4>Requirements for installation</h4>
                   <ul><li>Meta Quest with Developer Mode and USB debugging enabled; Quest 3S is currently tested</li><li>Windows 10 or 11 PC with approximately 15 GB free</li><li>Approximately 6 GB free on the headset</li><li>Official Google Play GTA San Andreas 2.11.311 ARM64 complete split APK set</li><li>Supported PS2-style audio archive from the “Original plan mod pack” dated 16 August 2026</li><li>Android phone or tablet with the official game, or a previously exported complete split set</li><li>Internet access for the initial build-tool download</li></ul>
                 </section>
-                <section>
-                  <h4>Installation</h4>
-                  <p>Close SideQuest, run the Windows installer, and provide either the authorized Android device containing your purchased Google Play copy or a previously exported complete split APK set. Select the supported audio archive, connect and authorize the Quest, then choose Build and Install.</p>
-                  <p>The installer verifies the supplied files and builds your personal Quest package locally. The first build takes longer while the verified build tools are downloaded; later builds can reuse the local toolchain.</p>
+                <section class="after-installation">
+                  <h4>After installation</h4>
+                  <p>Launch the personal build directly on the headset. The PC is not required while playing.</p>
                   <p class="small-note">The installer is not currently code-signed, so Windows may show an unknown-publisher warning. Verify the downloaded file against the published SHA-256 checksum.</p>
                 </section>
                 <details class="project-more">
@@ -178,12 +197,23 @@
               <div class="project-info">
                 <div class="release-meta"><span>v0.94</span><span>Meta Quest 3</span><span>Unofficial mod</span></div>
                 <p class="release-note">A legally obtained PC copy of The Simpsons: Hit &amp; Run is required. Original game data is not included.</p>
-                <div class="project-actions" aria-label="Downloads for The Simpsons Hit and Run Diorama Mod">
-                  <a class="primary-download" data-release-asset="installer" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/simpsons-hit-and-run-v0.94/SimpsonsHitRun-DioramaMR-Installer-v0.94.exe" target="_blank" rel="noopener noreferrer">Download for Windows <span data-release-version>v0.94 ↗</span></a>
-                  <a data-release-asset="apk" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/simpsons-hit-and-run-v0.94/SimpsonsHitRun-DioramaMR-v0.94.apk" target="_blank" rel="noopener noreferrer">Manual APK <span>Advanced ↗</span></a>
-                  <a data-release-asset="checksum" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/simpsons-hit-and-run-v0.94/SHA256SUMS-v0.94.txt" target="_blank" rel="noopener noreferrer">Verify SHA-256 <span>Checksums ↗</span></a>
-                  <a data-release-page href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/tag/simpsons-hit-and-run-v0.94" target="_blank" rel="noopener noreferrer">Release details <span>GitHub ↗</span></a>
-                </div>
+                <section class="easy-install" aria-labelledby="simpsons-install-title">
+                  <div><span>Recommended</span><h4 id="simpsons-install-title">Easy installation</h4></div>
+                  <p>The installer finds your original game folder, checks the files, installs the Quest app and transfers the required game data.</p>
+                  <a class="primary-download" data-release-asset="installer" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/simpsons-hit-and-run-v0.94/SimpsonsHitRun-DioramaMR-Installer-v0.94.exe" target="_blank" rel="noopener noreferrer">Download installer <span data-release-version>v0.94 ↗</span></a>
+                </section>
+                <p class="standalone-note"><strong>Runs natively on Meta Quest.</strong> A Windows PC and USB connection are only required for installation.</p>
+                <details class="download-options">
+                  <summary>Other installation options <span>+</span></summary>
+                  <div>
+                    <p>For a manual setup, install the APK with ADB or SideQuest and transfer your legally obtained game files separately.</p>
+                    <div class="project-actions" aria-label="Other downloads for The Simpsons Hit and Run">
+                      <a data-release-asset="apk" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/simpsons-hit-and-run-v0.94/SimpsonsHitRun-DioramaMR-v0.94.apk" target="_blank" rel="noopener noreferrer">Download APK <span>Manual installation ↗</span></a>
+                      <a data-release-asset="checksum" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/simpsons-hit-and-run-v0.94/SHA256SUMS-v0.94.txt" target="_blank" rel="noopener noreferrer">Verify download <span>SHA-256 checksums ↗</span></a>
+                      <a data-release-page href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/tag/simpsons-hit-and-run-v0.94" target="_blank" rel="noopener noreferrer">Release details <span>GitHub ↗</span></a>
+                    </div>
+                  </div>
+                </details>
               </div>
               <div class="project-details">
                 <section class="features">
@@ -200,12 +230,12 @@
                   </div>
                 </section>
                 <section>
-                  <h4>Requirements</h4>
+                  <h4>Requirements for installation</h4>
                   <ul><li>Meta Quest 3 with Developer Mode enabled</li><li>Windows PC and USB data connection</li><li>Legally obtained, unmodified PC copy of Hit &amp; Run</li><li>USB debugging authorization and free storage space</li></ul>
                 </section>
-                <section>
-                  <h4>Installation</h4>
-                  <p>The installer detects the Quest, locates or accepts the original PC game folder, validates the files, installs the app and copies the required game data. Launch it from Unknown Sources on the headset.</p>
+                <section class="after-installation">
+                  <h4>After installation</h4>
+                  <p>Launch the mod from Unknown Sources on the headset. The PC is not required while playing.</p>
                   <p class="small-note">Some missions, effects, interiors and performance-heavy areas may still need Diorama MR-specific adjustments.</p>
                 </section>
                 <details class="project-more">
@@ -231,13 +261,24 @@
               <div class="project-info">
                 <div class="release-meta"><span>v0.9.0 beta</span><span>Meta Quest 3</span><span>Standalone</span></div>
                 <p class="release-note">The installer and APK do not contain a ROM or proprietary Nintendo assets.</p>
-                <div class="project-actions" aria-label="Downloads for Super Mario 64 Diorama Mod">
-                  <a class="primary-download" data-release-asset="installer" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/super-mario-64-v0.9.0/SM64-Diorama-MR-v0.9.0-Installer.exe" target="_blank" rel="noopener noreferrer">Download for Windows <span data-release-version>v0.9.0 beta ↗</span></a>
-                  <a data-release-asset="apk" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/super-mario-64-v0.9.0/SM64-Diorama-MR-v0.9.0.apk" target="_blank" rel="noopener noreferrer">Manual APK <span>Advanced ↗</span></a>
-                  <a data-release-asset="checksum" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/super-mario-64-v0.9.0/SHA256SUMS-v0.9.0.txt" target="_blank" rel="noopener noreferrer">Verify SHA-256 <span>Checksums ↗</span></a>
-                  <a href="https://github.com/galateainteractive/sm64coopdx-diorama-mr" target="_blank" rel="noopener noreferrer">View source on GitHub <span>Repository ↗</span></a>
-                  <a data-release-page href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/tag/super-mario-64-v0.9.0" target="_blank" rel="noopener noreferrer">Release details <span>GitHub ↗</span></a>
-                </div>
+                <section class="easy-install" aria-labelledby="mario-install-title">
+                  <div><span>Recommended</span><h4 id="mario-install-title">Easy installation</h4></div>
+                  <p>The installer checks your compatible ROM, installs the Quest app and copies the ROM to the correct location.</p>
+                  <a class="primary-download" data-release-asset="installer" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/super-mario-64-v0.9.0/SM64-Diorama-MR-v0.9.0-Installer.exe" target="_blank" rel="noopener noreferrer">Download installer <span data-release-version>v0.9.0 beta ↗</span></a>
+                </section>
+                <p class="standalone-note"><strong>Runs natively on Meta Quest.</strong> A Windows PC and USB connection are only required for installation.</p>
+                <details class="download-options">
+                  <summary>Other options and project files <span>+</span></summary>
+                  <div>
+                    <p>For a manual setup, install the APK with ADB or SideQuest and copy your legally obtained compatible ROM to the Quest separately.</p>
+                    <div class="project-actions" aria-label="Other downloads for Super Mario 64">
+                      <a data-release-asset="apk" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/super-mario-64-v0.9.0/SM64-Diorama-MR-v0.9.0.apk" target="_blank" rel="noopener noreferrer">Download APK <span>Manual installation ↗</span></a>
+                      <a href="https://github.com/galateainteractive/sm64coopdx-diorama-mr" target="_blank" rel="noopener noreferrer">View project on GitHub <span>Source and documentation ↗</span></a>
+                      <a data-release-asset="checksum" href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/download/super-mario-64-v0.9.0/SHA256SUMS-v0.9.0.txt" target="_blank" rel="noopener noreferrer">Verify download <span>SHA-256 checksums ↗</span></a>
+                      <a data-release-page href="https://github.com/galateainteractive/Diorama-MR-Mods-Releases/releases/tag/super-mario-64-v0.9.0" target="_blank" rel="noopener noreferrer">Release details <span>GitHub ↗</span></a>
+                    </div>
+                  </div>
+                </details>
               </div>
               <div class="project-details">
                 <section class="features">
@@ -253,12 +294,12 @@
                   </div>
                 </section>
                 <section>
-                  <h4>Requirements</h4>
+                  <h4>Requirements for installation</h4>
                   <ul><li>Meta Quest 3 with Developer Mode enabled</li><li>Windows PC and USB connection for the installer</li><li>Legally obtained, unmodified US Super Mario 64 .z64 ROM</li><li>USB debugging authorization</li></ul>
                 </section>
-                <section>
-                  <h4>Installation</h4>
-                  <p>The recommended installer validates your own compatible ROM, installs the APK, copies the ROM to the correct Quest location and launches the game. Advanced users can install the APK using ADB or SideQuest and copy the ROM manually.</p>
+                <section class="after-installation">
+                  <h4>After installation</h4>
+                  <p>Launch the mod directly on the headset. The PC is not required while playing.</p>
                   <p class="small-note">Windows may show an Unknown Publisher warning because the installer is not Authenticode-signed. Only continue with a file downloaded from this page and verified against the published checksum.</p>
                 </section>
                 <details class="project-more">

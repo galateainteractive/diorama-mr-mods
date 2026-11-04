@@ -160,12 +160,27 @@ img{display:block;max-width:100%}
 .release-meta span{padding:7px 9px;border:1px solid var(--line);color:#8e9489;font:8px Consolas,monospace;text-transform:uppercase}
 .project-lead{max-width:620px;margin:0 0 20px;color:#c3c7bd;font-size:15px;line-height:1.65}
 .release-note{max-width:620px;margin:0 0 30px;color:#7f857b;font:9px/1.6 Consolas,monospace;text-transform:uppercase}
+.easy-install{padding:20px;border:1px solid #b9ff3f55;background:linear-gradient(135deg,#b9ff3f12,transparent 72%)}
+.easy-install>div{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:12px}
+.easy-install>div>span{color:var(--acid);font:8px Consolas,monospace;text-transform:uppercase}
+.easy-install h4{margin:0;color:var(--paper);font:400 25px Georgia,serif}
+.easy-install p{margin:0 0 18px;color:#aeb4a9;font-size:12px;line-height:1.65}
+.primary-download{display:flex;min-height:52px;align-items:center;justify-content:space-between;gap:18px;padding:14px 16px;color:#10130e;background:var(--acid);font:9px/1.4 Consolas,monospace;text-transform:uppercase;transition:.2s}
+.primary-download span{color:#384528}
+.primary-download:hover,.primary-download:focus-visible{padding-inline:22px;background:var(--acid-soft);outline:none}
+.standalone-note{margin:16px 0 0;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:#979e92;font:9px/1.65 Consolas,monospace;text-transform:uppercase}
+.standalone-note strong{color:var(--acid-soft);font-weight:400}
+.download-options{margin-top:0;border-bottom:1px solid var(--line)}
+.download-options>summary{display:flex;min-height:46px;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;list-style:none;color:#8f958b;font:8px Consolas,monospace;text-transform:uppercase}
+.download-options>summary::-webkit-details-marker{display:none}
+.download-options>summary span{color:var(--acid-soft);font-size:17px;transition:transform .2s ease}
+.download-options[open]>summary span{transform:rotate(45deg)}
+.download-options>div>p{margin:0;padding:16px 10px;color:#858c82;border-top:1px solid var(--line);font-size:11px;line-height:1.65}
 .project-actions{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
 .project-actions>a,.project-actions>span{display:flex;min-height:48px;align-items:center;justify-content:space-between;gap:18px;padding:14px 10px;color:#858b80;border-bottom:1px solid var(--line);font:8px/1.4 Consolas,monospace;text-align:left;text-transform:uppercase;transition:.2s}
 .project-actions>a span{min-height:0;padding:0;border:0;color:#62675f}
 .project-actions>a:hover,.project-actions>a:focus-visible{padding-inline:16px;color:#10130e;background:var(--acid);outline:none}
 .project-actions>a:hover span,.project-actions>a:focus-visible span{color:#10130e}
-.project-actions>.primary-download{color:var(--acid-soft)}
 .project-actions>*:last-child{border-bottom:0}
 .project-details{display:grid;grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;border-top:1px solid var(--line);background:var(--line)}
 .project-details>section,.project-more{padding:34px;background:#0d100d}
@@ -296,7 +311,7 @@ footer p{max-width:680px;margin:0}
   .project-title{display:block}.project-title strong{display:block;font-size:9vw}.project-title small{display:block;margin-top:6px}
   .project-status{display:none}.project-toggle{width:36px;height:36px}
   .project-body{grid-template-columns:1fr}.project-card figure{aspect-ratio:4/3;border-right:0;border-bottom:1px solid var(--line)}
-  .project-info{padding:22px 18px}.release-meta{padding-bottom:28px}.project-lead{font-size:14px}
+  .project-info{padding:22px 18px}.release-meta{padding-bottom:28px}.project-lead{font-size:14px}.easy-install{padding:18px 14px}.easy-install>div{align-items:flex-start;flex-direction:column-reverse;gap:8px}.easy-install h4{font-size:23px}.primary-download{min-height:50px}
   .project-actions{grid-template-columns:1fr}
   .project-actions>a,.project-actions>span{min-height:44px;border-right:0;border-bottom:1px solid var(--line)}
   .project-actions>*:last-child{border-bottom:0}
