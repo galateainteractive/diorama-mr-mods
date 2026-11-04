@@ -227,8 +227,8 @@
               </div>
               <div class="project-details">
                 <section class="features">
-                  <h4>Features</h4>
-                  <ul class="feature-list"><li>Springfield rendered as a mixed-reality miniature in passthrough</li><li>Full 6DoF room-scale observation and physical parallax</li><li>Fixed and treadmill-style diorama presentations</li><li>Diorama-aligned interiors</li><li>Spatial HUD, mission information and headset-relative audio</li><li>Diorama MR, immersive VR and Original presentation modes</li></ul>
+                  <h4>Diorama MR features</h4>
+                  <ul class="feature-list"><li>Springfield rendered as a mixed-reality miniature in passthrough, with the familiar Simpsons clouds floating in your physical room</li><li>Two diorama modes: Treadmill and Fixed</li><li>Two sizes for the fully rendered spotlight</li><li>Optional extended map view showing surrounding roads and terrain</li><li>Adjustable diorama position, rotation and scale</li><li>Spatial audio aligned with the diorama, preserving direction and distance</li><li>Interiors, HUD and mission information adapted to the diorama perspective</li><li>Switch between Diorama MR and the immersive VR mode inherited from the underlying port</li></ul>
                 </section>
                 <section>
                   <h4>Requirements for installation</h4>
@@ -249,9 +249,14 @@
                 <section class="developer-note">
                   <div class="developer-note-heading"><span>Developer's note</span><small>Filipe Maliska · Work in progress</small></div>
                   <div class="developer-note-copy">
-                    <p>Because The Simpsons: Hit &amp; Run is an open-world game, its diorama required a different approach. I created a spotlight-style presentation designed to work particularly well on a table using Treadmill mode: the character remains near the center while Springfield moves underneath.</p>
-                    <p>For players who prefer the feeling of a larger map occupying the room, the mod also includes a Fixed mode. Different visibility profiles balance performance and how much of Springfield is displayed. My preferred setup keeps the fully rendered area around the player while the surrounding terrain and roads remain visible in a simplified form, so it is still possible to read the shape and direction of the city.</p>
-                    <p>I have played and tested the campaign up to the Bart section. The rest of the game should be playable, but later missions may contain mechanics or situations that still need specific adaptation.</p>
+                    <p>Like GTA San Andreas, The Simpsons: Hit &amp; Run takes place in an open world. Springfield is not as large as Los Santos, but adapting it as a diorama creates many of the same visibility and performance challenges.</p>
+                    <p>For this mod, I decided to provide different ways of displaying the city instead of relying on a single visibility setup. The central spotlight contains the fully rendered, full-color environment around the character. Players can choose between two spotlight sizes, switching between them depending on the scene, the desired view and headset performance.</p>
+                    <p>There is also an optional extended map view. When enabled, a larger surrounding area remains visible in a simplified gray form, showing terrain and roads without fully rendering every object. This makes it possible to see where a street continues or curves and to understand the broader shape of Springfield without the performance cost of displaying the complete environment.</p>
+                    <p>This extended view is optional. Players can disable it and use only the fully rendered spotlight, or combine it with either of the available spotlight sizes. I am still refining the balance between visibility and performance, but the current options make it possible to change the presentation according to what works best at each moment.</p>
+                    <p>In Treadmill mode, the character remains close to the center while Springfield moves underneath. This works particularly well with the diorama positioned on a table and makes it practical to play seated or without using much physical space.</p>
+                    <p>Fixed mode keeps the diorama anchored in the physical room while the character moves through the city. With enough space, it creates a stronger impression of Springfield existing as a larger physical miniature around the player.</p>
+                    <p>The audio was also adapted to the diorama perspective. Sounds remain connected to their positions within the miniature, preserving direction and distance. A vehicle moving on the left side of the diorama, for example, is heard from the left, while sounds become more distant as the character moves farther away.</p>
+                    <p>The campaign has been tested up to the Bart section, but I have not yet completed the entire game in Diorama MR. Later missions may contain mechanics, interiors or interactions that still need specific adaptation. If you find a bug, an area that performs poorly, or a mission or control that does not work correctly, please send a report. I'll investigate it and work on a fix or improvement for a future update.</p>
                     <a class="feedback-trigger" href="#feedback" data-project="The Simpsons: Hit &amp; Run Diorama MR">Found something or have an idea? Send feedback <span>↘</span></a>
                   </div>
                 </section>
