@@ -297,8 +297,8 @@
               </div>
               <div class="project-details">
                 <section class="features">
-                  <h4>Features</h4>
-                  <ul class="feature-list"><li>Native standalone Meta Quest application</li><li>Mixed-reality passthrough presentation</li><li>Room-scale 6DoF observation independent from Mario's camera</li><li>Character-centered diorama positioning, rotation and scale</li><li>Headset-relative movement and spatial Mario audio</li><li>Contextual passthrough color effects</li></ul>
+                  <h4>Diorama MR features</h4>
+                  <ul class="feature-list"><li>Super Mario 64 rendered as a mixed-reality miniature in your physical room</li><li>Adjustable diorama position, rotation and scale</li><li>Room-scale observation independent from the original game camera</li><li>Movement adapted to the diorama perspective</li><li>Spatial audio aligned with the miniature</li><li>Gameplay- and level-responsive passthrough color effects</li><li>SM64 Co-Op DX co-op available in Diorama MR</li><li>Switch between Diorama MR and other view modes from the underlying VR port</li></ul>
                 </section>
                 <section>
                   <h4>Requirements for installation</h4>
@@ -312,15 +312,23 @@
                 <details class="project-more">
                   <summary>Credits and legal notice <span>+</span></summary>
                   <div>
-                    <p>Built on the work of SM64 Co-Op DX VR, SM64 Co-Op DX, sm64ex-coop, sm64ex, sm64-port and the Super Mario 64 decompilation community. See the <a href="https://github.com/galateainteractive/sm64coopdx-diorama-mr" target="_blank" rel="noopener noreferrer">project repository</a> for source and complete lineage.</p>
+                    <p>Built on the work of <a href="https://github.com/fulldivegames/sm64coopdx-VR-Standalone-Physics-based" target="_blank" rel="noopener noreferrer">fulldivegames' SM64 Co-Op DX VR port</a>, SM64 Co-Op DX, sm64ex-coop, sm64ex, sm64-port and the Super Mario 64 decompilation community. See the <a href="https://github.com/galateainteractive/sm64coopdx-diorama-mr" target="_blank" rel="noopener noreferrer">project repository</a> for source and complete lineage.</p>
                     <p>Unofficial, non-commercial fan project. Not affiliated with Nintendo, Meta or upstream projects. Users must provide their own legally obtained compatible game copy.</p>
                   </div>
                 </details>
                 <section class="developer-note">
                   <div class="developer-note-heading"><span>Developer's note</span><small>Filipe Maliska · Work in progress</small></div>
                   <div class="developer-note-copy">
-                    <p>Super Mario 64 works especially well as a diorama because most of its levels are already self-contained spaces. In many cases, the entire level can be rendered at once and scaled to fit comfortably inside a room.</p>
-                    <p>The original cheat menu also makes it possible to jump directly to different levels for testing. I have tested a large part of the game this way and everything appears to be playable, although I have not yet completed a full playthrough from beginning to end.</p>
+                    <p>Super Mario 64 works particularly well as a diorama because most of its levels are already designed as self-contained spaces. Unlike the open worlds of GTA San Andreas and The Simpsons: Hit &amp; Run, many of Mario's levels can be rendered in their entirety and scaled to fit comfortably inside a physical room.</p>
+                    <p>This makes it possible to see the structure of a complete level as a miniature while still playing the original game. The diorama can be repositioned, rotated and resized, and the player can physically observe it from different angles without being limited to the original game camera.</p>
+                    <p>Movement was adapted to remain intuitive from the diorama perspective, while spatial audio preserves the position of Mario and other sounds within the miniature.</p>
+                    <p>Passthrough color effects allow the physical room to respond to events inside the game. The color changes when Mario collects a star or takes damage, and some levels influence the room according to their environment—for example, lava areas introduce a red tone.</p>
+                    <p>These effects are still open to experimentation. More events and level-specific colors may be added, existing ones may be adjusted or removed, and I am considering making the system optional for players who prefer to keep the passthrough unchanged. In the current version, the color effects are always enabled.</p>
+                    <p>Diorama MR builds on the native Meta Quest VR port developed by fulldivegames, which itself builds on SM64 Co-Op DX. Other view modes from that port remain available alongside Diorama MR. The co-op system inherited from SM64 Co-Op DX is also working well with the diorama mode.</p>
+                    <p>The level-select cheat available through earlier SM64 Co-Op DX VR work allows players to visit different levels directly. Besides being useful for players who want to explore the game freely, it has also made it possible to test a large part of the game without completing the entire campaign in sequence.</p>
+                    <p>One minor visual limitation can appear in levels containing separate rooms. From the external diorama perspective, a few objects belonging to rooms that are not currently rendered may sometimes remain visible.</p>
+                    <p>This does not bother me much during normal gameplay, and I have already removed most of these out-of-room objects. A few isolated cases still remain, particularly around the castle interiors. I will continue observing how noticeable they are in practice and use player feedback to decide whether this system needs further refinement.</p>
+                    <p>Most of the levels and situations I have tested are working well, and the game appears to be playable from beginning to end in Diorama MR. However, I have not yet completed a full playthrough of the entire game in this version. If you find a bug, a level that does not display correctly, an unexpected object, or a control or interaction that does not work as expected, please send a report. I'll investigate it and work on a fix or improvement for a future update.</p>
                     <a class="feedback-trigger" href="#feedback" data-project="Super Mario 64 Diorama MR">Found something or have an idea? Send feedback <span>↘</span></a>
                   </div>
                 </section>
