@@ -126,7 +126,7 @@ img{display:block;max-width:100%}
 .section-heading h2{font-size:clamp(58px,7vw,112px)}
 .section-heading>p:last-child{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
 .project-list{border-top:1px solid var(--line)}
-.project-card{overflow:hidden;border-bottom:1px solid var(--line);background:transparent}
+.project-card{overflow:hidden;scroll-margin-top:16px;border-bottom:1px solid var(--line);background:transparent}
 .project-card>summary{
   display:grid;
   grid-template-columns:52px minmax(0,1fr) auto 44px;

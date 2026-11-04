@@ -229,12 +229,32 @@ async function syncGitHubReleases() {
 
 syncGitHubReleases();
 
+let entryRequestedByUser = null;
+
 modEntries.forEach((entry) => {
+  const summary = entry.querySelector(':scope > summary');
+
+  summary?.addEventListener('click', () => {
+    entryRequestedByUser = entry.open ? null : entry;
+  });
+
   entry.addEventListener('toggle', () => {
     if (!entry.open) return;
 
     modEntries.forEach((otherEntry) => {
       if (otherEntry !== entry) otherEntry.removeAttribute('open');
+    });
+
+    if (entryRequestedByUser !== entry) return;
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        entry.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'start',
+        });
+        entryRequestedByUser = null;
+      });
     });
   });
 });
