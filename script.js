@@ -132,7 +132,7 @@ postSendNo?.addEventListener('click', () => {
 
 const modEntries = document.querySelectorAll('.project-card');
 
-const releasesApi = 'https://api.github.com/repos/galateainteractive/Diorama-MR-Mods-Releases/releases?per_page=100';
+const releasesApi = 'https://api.github.com/repos/galateainteractive/Diorama-MR-Mods-Releases/releases';
 const releaseAssetMatchers = {
   installer: (name) => /installer.*\.exe$/i.test(name),
   apk: (name) => /\.apk$/i.test(name),
@@ -140,34 +140,13 @@ const releaseAssetMatchers = {
   source: (name) => /source.*\.zip$/i.test(name),
 };
 
-function cachedReleases() {
-  try {
-    const cached = JSON.parse(sessionStorage.getItem('galatea-releases') || 'null');
-    if (cached && Date.now() - cached.savedAt < 10 * 60 * 1000 && Array.isArray(cached.releases)) {
-      return cached.releases;
-    }
-  } catch {
-    // A disabled or unavailable sessionStorage should never block the fallback links.
-  }
-  return null;
-}
-
 async function loadReleases() {
-  const cached = cachedReleases();
-  if (cached) return cached;
-
-  const response = await fetch(releasesApi, {
+  const response = await fetch(`${releasesApi}?per_page=100&release_sync=${Date.now()}`, {
+    cache: 'no-store',
     headers: { Accept: 'application/vnd.github+json' },
   });
   if (!response.ok) throw new Error('GitHub release lookup failed');
-
-  const releases = await response.json();
-  try {
-    sessionStorage.setItem('galatea-releases', JSON.stringify({ savedAt: Date.now(), releases }));
-  } catch {
-    // The live data is still usable even when it cannot be cached.
-  }
-  return releases;
+  return response.json();
 }
 
 function releaseVersion(card, release) {
