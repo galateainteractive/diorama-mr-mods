@@ -346,7 +346,7 @@
           <h2 id="feedback-title">Something<br />to say?</h2>
           <p>Found a bug, have an idea, or just want to tell me how the mod felt? Write to me here.</p>
         </div>
-        <form id="feedback-form" data-endpoint="" novalidate>
+        <form id="feedback-form" data-endpoint="https://formspree.io/f/xppdawpp" novalidate>
           <input type="hidden" name="source" value="Diorama MR Mods website" />
           <div class="feedback-fields">
             <label>
@@ -421,14 +421,16 @@
           <p class="section-label">Development updates</p>
           <h2>Get Galatea <br />updates.</h2>
         </div>
-        <form id="updates-form" novalidate>
+        <form id="updates-form" data-endpoint="https://formspree.io/f/xrpqzbpa" novalidate>
+          <input type="hidden" name="source" value="Diorama MR Mods updates form" />
           <label for="email">Email address</label>
           <div class="email-row">
             <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
             <button type="submit">Join the list ↗</button>
           </div>
-          <p class="form-note">Occasional project updates and new releases from Galatea Interactive. The mailing-list service will be connected before release; no address is currently being stored.</p>
+          <p class="form-note">Occasional project updates and new releases from Galatea Interactive. You can unsubscribe at any time.</p>
           <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          <input class="feedback-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
         </form>
       </section>
 
@@ -440,6 +442,6 @@
       <a href="https://www.instagram.com/galateainteractive/" target="_blank" rel="noopener noreferrer">Galatea Interactive ↗</a>
     </footer>
 
-    <script src="script.js?v=release-sync-2"></script>
+    <script src="script.js?v=forms-live-1"></script>
   </body>
 </html>

@@ -30,7 +30,26 @@ const postSendYes = document.querySelector('#post-send-yes');
 const postSendNo = document.querySelector('#post-send-no');
 let lastSubmittedEmail = '';
 
-updatesForm?.addEventListener('submit', (event) => {
+const submitUpdateSignup = async (email, source) => {
+  const endpoint = updatesForm?.dataset.endpoint;
+  if (!endpoint) throw new Error('Updates endpoint is not configured');
+
+  const signup = new FormData();
+  signup.append('email', email);
+  signup.append('source', source);
+  signup.append('message_type', 'Galatea Interactive updates signup');
+  signup.append('release_updates', 'yes');
+
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    body: signup,
+    headers: { Accept: 'application/json' },
+  });
+
+  if (!response.ok) throw new Error('Signup failed');
+};
+
+updatesForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const email = new FormData(updatesForm).get('email');
 
@@ -39,7 +58,21 @@ updatesForm?.addEventListener('submit', (event) => {
     return;
   }
 
-  formStatus.textContent = 'Signup is not connected yet — this is a visual prototype.';
+  const submitButton = updatesForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.textContent = 'Joining…';
+  formStatus.textContent = '';
+
+  try {
+    await submitUpdateSignup(String(email), 'Diorama MR Mods updates form');
+    updatesForm.reset();
+    formStatus.textContent = 'Thanks — your email has been saved for Galatea Interactive updates.';
+  } catch {
+    formStatus.textContent = 'The signup could not be saved. Please try again in a moment.';
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Join the list ↗';
+  }
 });
 
 feedbackTriggers.forEach((trigger) => {
@@ -87,7 +120,19 @@ feedbackForm?.addEventListener('submit', async (event) => {
     feedbackForm.reset();
     feedbackProject.value = selectedProject;
     feedbackStatus.textContent = 'Thanks — your message was sent.';
-    postSendUpdates.hidden = requestedUpdates;
+
+    if (requestedUpdates) {
+      try {
+        await submitUpdateSignup(lastSubmittedEmail, 'Diorama MR Mods feedback opt-in');
+        feedbackStatus.textContent = 'Thanks — your message was sent and your update signup was saved.';
+        postSendUpdates.hidden = true;
+      } catch {
+        feedbackStatus.textContent = 'Your message was sent, but the update signup could not be saved. Please try the updates form below.';
+        postSendUpdates.hidden = true;
+      }
+    } else {
+      postSendUpdates.hidden = false;
+    }
   } catch {
     feedbackStatus.textContent = 'The message could not be sent. Please try again in a moment.';
   } finally {
@@ -97,26 +142,14 @@ feedbackForm?.addEventListener('submit', async (event) => {
 });
 
 postSendYes?.addEventListener('click', async () => {
-  const endpoint = feedbackForm?.dataset.endpoint;
-  if (!endpoint || !lastSubmittedEmail) return;
+  if (!lastSubmittedEmail) return;
 
   postSendYes.disabled = true;
   postSendNo.disabled = true;
   postSendYes.textContent = 'Saving…';
 
-  const signup = new FormData();
-  signup.append('source', 'Galatea Interactive post-feedback signup');
-  signup.append('email', lastSubmittedEmail);
-  signup.append('message_type', 'Galatea Interactive updates signup');
-  signup.append('release_updates', 'yes');
-
   try {
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      body: signup,
-      headers: { Accept: 'application/json' },
-    });
-    if (!response.ok) throw new Error('Signup failed');
+    await submitUpdateSignup(lastSubmittedEmail, 'Galatea Interactive post-feedback signup');
     postSendUpdates.innerHTML = '<p><strong>You’re on the list.</strong>I’ll only send occasional Galatea Interactive updates and release news.</p>';
   } catch {
     postSendYes.disabled = false;
