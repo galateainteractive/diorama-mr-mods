@@ -1,4 +1,44 @@
 const reveals = document.querySelectorAll('.reveal');
+const isPtBr = document.documentElement.lang.toLowerCase() === 'pt-br';
+const uiCopy = isPtBr
+  ? {
+      invalidEmail: 'Digite um endereço de e-mail válido.',
+      joining: 'Cadastrando…',
+      signupSuccess: 'Obrigado — seu e-mail foi cadastrado para receber novidades da Galatea Interactive.',
+      signupError: 'Não foi possível salvar o cadastro. Tente novamente em instantes.',
+      joinList: 'Entrar na lista ↗',
+      requiredFields: 'Preencha os campos obrigatórios.',
+      feedbackUnavailable: 'A caixa de feedback ainda está sendo conectada. Sua mensagem não foi enviada.',
+      sending: 'Enviando…',
+      feedbackSuccess: 'Obrigado — sua mensagem foi enviada.',
+      feedbackAndSignupSuccess: 'Obrigado — sua mensagem foi enviada e seu cadastro para novidades foi salvo.',
+      feedbackSentSignupError: 'Sua mensagem foi enviada, mas não foi possível salvar o cadastro para novidades. Tente pelo formulário abaixo.',
+      feedbackError: 'Não foi possível enviar a mensagem. Tente novamente em instantes.',
+      sendMessage: 'Enviar mensagem',
+      saving: 'Salvando…',
+      onList: '<p><strong>Você está na lista.</strong>Enviarei apenas novidades ocasionais da Galatea Interactive e avisos de lançamentos.</p>',
+      tryAgain: 'Tentar novamente',
+      postSignupError: 'Sua mensagem foi enviada, mas o cadastro para novidades não funcionou. Tente novamente.',
+    }
+  : {
+      invalidEmail: 'Enter a valid email address.',
+      joining: 'Joining…',
+      signupSuccess: 'Thanks — your email has been saved for Galatea Interactive updates.',
+      signupError: 'The signup could not be saved. Please try again in a moment.',
+      joinList: 'Join the list ↗',
+      requiredFields: 'Please complete the required fields.',
+      feedbackUnavailable: 'The feedback inbox is being connected. Your message has not been sent yet.',
+      sending: 'Sending…',
+      feedbackSuccess: 'Thanks — your message was sent.',
+      feedbackAndSignupSuccess: 'Thanks — your message was sent and your update signup was saved.',
+      feedbackSentSignupError: 'Your message was sent, but the update signup could not be saved. Please try the updates form below.',
+      feedbackError: 'The message could not be sent. Please try again in a moment.',
+      sendMessage: 'Send message',
+      saving: 'Saving…',
+      onList: '<p><strong>You’re on the list.</strong>I’ll only send occasional Galatea Interactive updates and release news.</p>',
+      tryAgain: 'Try again',
+      postSignupError: 'Your message was sent, but the update signup did not work. Please try again.',
+    };
 
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(
@@ -54,24 +94,24 @@ updatesForm?.addEventListener('submit', async (event) => {
   const email = new FormData(updatesForm).get('email');
 
   if (!email || !updatesForm.checkValidity()) {
-    formStatus.textContent = 'Enter a valid email address.';
+    formStatus.textContent = uiCopy.invalidEmail;
     return;
   }
 
   const submitButton = updatesForm.querySelector('button[type="submit"]');
   submitButton.disabled = true;
-  submitButton.textContent = 'Joining…';
+  submitButton.textContent = uiCopy.joining;
   formStatus.textContent = '';
 
   try {
     await submitUpdateSignup(String(email), 'Diorama MR Mods updates form');
     updatesForm.reset();
-    formStatus.textContent = 'Thanks — your email has been saved for Galatea Interactive updates.';
+    formStatus.textContent = uiCopy.signupSuccess;
   } catch {
-    formStatus.textContent = 'The signup could not be saved. Please try again in a moment.';
+    formStatus.textContent = uiCopy.signupError;
   } finally {
     submitButton.disabled = false;
-    submitButton.textContent = 'Join the list ↗';
+    submitButton.textContent = uiCopy.joinList;
   }
 });
 
@@ -90,19 +130,19 @@ feedbackForm?.addEventListener('submit', async (event) => {
 
   if (!feedbackForm.checkValidity()) {
     feedbackForm.reportValidity();
-    feedbackStatus.textContent = 'Please complete the required fields.';
+    feedbackStatus.textContent = uiCopy.requiredFields;
     return;
   }
 
   const endpoint = feedbackForm.dataset.endpoint;
   if (!endpoint) {
-    feedbackStatus.textContent = 'The feedback inbox is being connected. Your message has not been sent yet.';
+    feedbackStatus.textContent = uiCopy.feedbackUnavailable;
     return;
   }
 
   const submitButton = feedbackForm.querySelector('button[type="submit"]');
   submitButton.disabled = true;
-  submitButton.textContent = 'Sending…';
+  submitButton.textContent = uiCopy.sending;
 
   try {
     const submission = new FormData(feedbackForm);
@@ -119,25 +159,25 @@ feedbackForm?.addEventListener('submit', async (event) => {
     const selectedProject = feedbackProject.value;
     feedbackForm.reset();
     feedbackProject.value = selectedProject;
-    feedbackStatus.textContent = 'Thanks — your message was sent.';
+    feedbackStatus.textContent = uiCopy.feedbackSuccess;
 
     if (requestedUpdates) {
       try {
         await submitUpdateSignup(lastSubmittedEmail, 'Diorama MR Mods feedback opt-in');
-        feedbackStatus.textContent = 'Thanks — your message was sent and your update signup was saved.';
+        feedbackStatus.textContent = uiCopy.feedbackAndSignupSuccess;
         postSendUpdates.hidden = true;
       } catch {
-        feedbackStatus.textContent = 'Your message was sent, but the update signup could not be saved. Please try the updates form below.';
+        feedbackStatus.textContent = uiCopy.feedbackSentSignupError;
         postSendUpdates.hidden = true;
       }
     } else {
       postSendUpdates.hidden = false;
     }
   } catch {
-    feedbackStatus.textContent = 'The message could not be sent. Please try again in a moment.';
+    feedbackStatus.textContent = uiCopy.feedbackError;
   } finally {
     submitButton.disabled = false;
-    submitButton.innerHTML = 'Send message <span>↗</span>';
+    submitButton.innerHTML = `${uiCopy.sendMessage} <span>↗</span>`;
   }
 });
 
@@ -146,16 +186,16 @@ postSendYes?.addEventListener('click', async () => {
 
   postSendYes.disabled = true;
   postSendNo.disabled = true;
-  postSendYes.textContent = 'Saving…';
+  postSendYes.textContent = uiCopy.saving;
 
   try {
     await submitUpdateSignup(lastSubmittedEmail, 'Galatea Interactive post-feedback signup');
-    postSendUpdates.innerHTML = '<p><strong>You’re on the list.</strong>I’ll only send occasional Galatea Interactive updates and release news.</p>';
+    postSendUpdates.innerHTML = uiCopy.onList;
   } catch {
     postSendYes.disabled = false;
     postSendNo.disabled = false;
-    postSendYes.textContent = 'Try again';
-    feedbackStatus.textContent = 'Your message was sent, but the update signup did not work. Please try again.';
+    postSendYes.textContent = uiCopy.tryAgain;
+    feedbackStatus.textContent = uiCopy.postSignupError;
   }
 });
 

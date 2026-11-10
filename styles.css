@@ -47,9 +47,12 @@ img{display:block;max-width:100%}
 .brand span{color:#c8c9c2}
 .brand strong{color:var(--acid);font-weight:400}
 .site-header nav{display:flex;gap:34px}
-.site-header nav a,.back-link{padding-block:8px;border-bottom:1px solid transparent;transition:.25s}
-.site-header nav a:hover,.back-link:hover{color:var(--acid);border-color:currentColor}
-.back-link{justify-self:end}
+.site-header nav a,.back-link,.language-switcher a{padding-block:8px;border-bottom:1px solid transparent;transition:.25s}
+.site-header nav a:hover,.back-link:hover,.language-switcher a:hover{color:var(--acid);border-color:currentColor}
+.header-actions{display:flex;align-items:center;justify-self:end;gap:20px}
+.language-switcher{display:flex;align-items:center;gap:7px;color:#989d93}
+.language-switcher .is-active{color:var(--acid);border-color:currentColor}
+.language-switcher span{color:#ffffff55}
 .hero{
   position:relative;
   min-height:100svh;
@@ -298,7 +301,7 @@ footer p{max-width:680px;margin:0}
 
 @media(max-width:800px){
   .site-header{grid-template-columns:1fr auto;min-height:72px;padding-inline:16px}
-  .site-header nav{display:none}.back-link{font-size:7px}.brand{gap:8px}
+  .site-header nav{display:none}.header-actions{gap:12px}.back-link{font-size:7px}.language-switcher{gap:5px}.brand{gap:8px}
   .hero-copy{padding:120px 16px 24px}
   .hero h1{font-size:22vw}
   .hero-bottom{grid-template-columns:1fr;margin-top:46px}
