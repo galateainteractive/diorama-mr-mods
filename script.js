@@ -205,21 +205,29 @@ postSendNo?.addEventListener('click', () => {
 
 const modEntries = document.querySelectorAll('.project-card');
 
-const releasesApi = 'https://api.github.com/repos/galateainteractive/Diorama-MR-Mods-Releases/releases';
+const defaultReleaseRepo = 'galateainteractive/Diorama-MR-Mods-Releases';
+const releaseRequests = new Map();
 const releaseAssetMatchers = {
   installer: (name) => /installer.*\.exe$/i.test(name),
   apk: (name) => /\.apk$/i.test(name),
-  checksum: (name) => /^sha256.*\.txt$/i.test(name),
+  checksum: (name) => /^(?:sha256.*\.txt|.*\.sha256)$/i.test(name),
   source: (name) => /source.*\.zip$/i.test(name),
 };
 
-async function loadReleases() {
-  const response = await fetch(`${releasesApi}?per_page=100&release_sync=${Date.now()}`, {
-    cache: 'no-store',
-    headers: { Accept: 'application/vnd.github+json' },
-  });
-  if (!response.ok) throw new Error('GitHub release lookup failed');
-  return response.json();
+function loadReleases(repo = defaultReleaseRepo) {
+  if (!releaseRequests.has(repo)) {
+    const apiUrl = `https://api.github.com/repos/${repo}/releases?per_page=100&release_sync=${Date.now()}`;
+    const request = fetch(apiUrl, {
+      cache: 'no-store',
+      headers: { Accept: 'application/vnd.github+json' },
+    }).then((response) => {
+      if (!response.ok) throw new Error(`GitHub release lookup failed for ${repo}`);
+      return response.json();
+    });
+    releaseRequests.set(repo, request);
+  }
+
+  return releaseRequests.get(repo);
 }
 
 function releaseVersion(card, release) {
@@ -266,17 +274,25 @@ async function syncGitHubReleases() {
   const releaseCards = [...modEntries].filter((card) => card.dataset.releasePrefix);
   if (!releaseCards.length) return;
 
-  try {
-    const releases = await loadReleases();
-    releaseCards.forEach((card) => {
-      const prefix = card.dataset.releasePrefix;
-      const release = releases.find((item) => !item.draft && item.tag_name.startsWith(prefix));
-      if (release) applyRelease(card, release);
-    });
-    document.querySelector('#mods')?.setAttribute('data-release-sync', 'live');
-  } catch {
-    document.querySelector('#mods')?.setAttribute('data-release-sync', 'fallback');
-  }
+  const results = await Promise.all(
+    releaseCards.map(async (card) => {
+      try {
+        const releases = await loadReleases(card.dataset.releaseRepo || defaultReleaseRepo);
+        const prefix = card.dataset.releasePrefix;
+        const release = releases.find((item) => !item.draft && item.tag_name.startsWith(prefix));
+        if (!release) throw new Error(`No matching release found for ${prefix}`);
+        applyRelease(card, release);
+        return true;
+      } catch {
+        card.dataset.releaseSync = 'fallback';
+        return false;
+      }
+    }),
+  );
+
+  const syncedCount = results.filter(Boolean).length;
+  const syncState = syncedCount === releaseCards.length ? 'live' : syncedCount ? 'partial' : 'fallback';
+  document.querySelector('#mods')?.setAttribute('data-release-sync', syncState);
 }
 
 syncGitHubReleases();
